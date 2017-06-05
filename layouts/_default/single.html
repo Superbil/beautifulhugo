@@ -16,7 +16,6 @@
       </span>
       {{ end }}
 
-
       <ul class="pager blog-pager">
         {{ if .PrevInSection }}
         <li class="previous">
@@ -30,13 +29,7 @@
         {{ end }}
       </ul>
 
-      {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (.Site.Params.comments)) }}
-      {{ if .Site.DisqusShortname }}
-      <div class="disqus-comments">
-        {{ template "_internal/disqus.html" . }}
-      </div>
-      {{ end }}
-      {{ end }}
+      {{ partial "disqus.html" . }}
 
     </div>
   </div>
